@@ -1,0 +1,19 @@
+@model IEnumerable<WebSite.Models.MonthReportModel>
+@using GridMvc.Html
+@using WebSite.Models
+@using WebSite.Code
+
+@{
+ViewData["Title"] = "Home Page";
+}
+
+@Html.Grid(Model).Columns(c =>
+{
+    c.Add(col => col.Month).Titled("Month");
+    c.Add(col => col.Amount).Titled("Amount").Format("{0:C}");
+}).WithDetails(Html.DetailsGrid((MonthReportModel parent) => SaleItem.ListAll().Where(x => x.Month == parent.Month)).Columns(c => {
+    c.Add(col => col.ItemName).Titled("Item");
+    c.Add(col => col.Quantity).Titled("Quantity");
+}))
+
+
