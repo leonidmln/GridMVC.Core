@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <PackageId>GridMVC.Core</PackageId>
+    <Authors>Leonid Molochniy</Authors>
+    <Company>DataQuadrant.NET</Company>
+    <Product>GridMVC.Core</Product>
+    <Description>GridMVC ported to ASP.NET Core 1.1</Description>
+    <PackageProjectUrl>https://github.com/leonidmln/GridMVC.Core</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/leonidmln/GridMVC.Core/master/grid-icon.png</PackageIconUrl>
+    <PackageTags>MVC Grid ASP.NET Core</PackageTags>
+    <RepositoryUrl>https://github.com/leonidmln/GridMVC.Core</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
