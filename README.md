@@ -12,4 +12,4 @@ Grid.Mvc uses <a href="http://jquery.com">jQuery</a> to provide client filtering
 Grid.Mvc uses <a href="http://getbootstrap.com/">Twitter Boostrap</a> css framework as default stylesheets. You can easy modify default html layout and provide your custom styles.
 
 # Sample screenshot
-<img src="../images/grid.mvc3.png?raw=true"/>
+<img src="./images/grid.mvc3.png?raw=true"/>
