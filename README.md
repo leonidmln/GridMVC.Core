@@ -10,3 +10,6 @@ It is a component that allows you easy construction of HTML tables for displayin
 
 Grid.Mvc uses <a href="http://jquery.com">jQuery</a> to provide client filtering functionality;<br/>
 Grid.Mvc uses <a href="http://getbootstrap.com/">Twitter Boostrap</a> css framework as default stylesheets. You can easy modify default html layout and provide your custom styles.
+
+# Sample screenshot
+<img src="../images/grid.mvc3.png"/>
