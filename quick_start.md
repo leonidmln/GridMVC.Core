@@ -36,7 +36,8 @@ Render Grid.Mvc on the page:
                  columns.Add(foo => foo.Description).Sortable(true);
            }).WithPaging(20)
 
-By default, this html helper method render "_Grid.cshtml" partial view in your Views/Shared folder. If you want to render other view - specify his name in 'viewName' parameter, like this:
+By default, this html helper method render "_Grid.cshtml" partial view in your Views/Shared folder. If you want to render other view - specify his name in 'viewName' parameter, like this:<br/>
+
 <code>
 @using GridMvc.Html
 
