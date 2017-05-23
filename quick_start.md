@@ -52,10 +52,10 @@ In the last step you need to ensure, that Grid.Mvc stylesheet and scripts regist
 
 In your _Layout.cshtml file:
 
-        <script src="@Url.Content("~/Scripts/jquery.min.js")" type="text/javascript"> </script>
-	<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" type="text/css" />
-	<script src="@Url.Content("~/Scripts/gridmvc.min.js")" type="text/javascript"> </script>
+<script src="@Url.Content("~/Scripts/jquery.min.js")" type="text/javascript"> </script>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")" type="text/javascript"> </script>
 
-If your project has own table styles you can use them. By default Grid.Mvc builds layout compatible with Bootstrap 3 css framework - http://getbootstrap.com/
+
 Read more: <a href="#>Paging in Grid.Mvc</a>
 
