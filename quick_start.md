@@ -37,7 +37,7 @@ Render Grid.Mvc on the page:
            }).WithPaging(20)
 
 By default, this html helper method render "_Grid.cshtml" partial view in your Views/Shared folder. If you want to render other view - specify his name in 'viewName' parameter, like this:
-
+<code>
 @using GridMvc.Html
 
 @Html.Grid(Model,"_MyCustomGrid").Columns(columns =>
@@ -45,6 +45,7 @@ By default, this html helper method render "_Grid.cshtml" partial view in your V
                 columns.Add(foo => foo.Title).Titled("Custom column title").SetWidth(110);
                 columns.Add(foo => foo.Description).Sortable(true);
           }).WithPaging(20)
+</code>	  
 
 For more documentation about column options, please see: Custom columns.
 
