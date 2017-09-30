@@ -1,0 +1,101 @@
+﻿@using GridMvc.Columns
+@using GridMvc.Html
+@using GridMvc
+@using Microsoft.AspNetCore.Html
+
+
+@model GridMvc.IGrid
+@if (Model == null) { return; }
+@if (Model.RenderOptions.RenderRowsOnly)
+{
+}
+else
+{
+    <div class="grid-mvc" data-lang="@Model.Language" data-gridname="@Model.RenderOptions.GridName" data-selectable="@Model.RenderOptions.Selectable.ToString().ToLower()" data-multiplefilters="@Model.RenderOptions.AllowMultipleFilters.ToString().ToLower()">
+        <div class="grid-wrap">
+            <table class="table table-striped grid-table @Model.GridCssClass">
+                @* Draw grid header *@
+                <thead>
+                    @RenderGridHeader()
+                </thead>
+                <tbody>
+                    @RenderGridBody()
+                </tbody>
+            </table>
+            @RenderGridPager()
+        </div>
+    </div>
+}
+@functions
+{
+    public IHtmlContent RenderGridHeader()
+    {
+        TagBuilder tb = new TagBuilder("tr");
+        foreach(IGridColumn column in Model.Columns)
+        {
+            tb.InnerHtml.AppendHtml(column.HeaderRenderer.Render(column));
+        }
+
+        return tb;
+    }
+
+    public IHtmlContent RenderGridBody()
+    {
+        if (!Model.ItemsToDisplay.Any())
+        {
+            string emptyBody = string.Format(
+                @"<tr class='grid-empty-text'>
+                    <td colspan='{0}'>
+                        {1}
+                    </td>
+                </tr>", Model.Columns.Count(), Model.EmptyGridText);
+            //Html.ViewContext.Writer.Write(new HtmlString(emptyBody));
+            return new HtmlString(emptyBody);
+        }
+        else
+        {
+            using (System.IO.StringWriter sw = new System.IO.StringWriter())
+            {
+                foreach (object item in Model.ItemsToDisplay)
+                {
+                    sw.WriteLine(string.Format("<tr class='grid-row {0}'>", Model.GetRowCssClasses(item)));
+                    foreach (IGridColumn column in Model.Columns)
+                    {
+                        column.CellRenderer.Render(column, column.GetCell(item)).WriteTo(sw, System.Text.Encodings.Web.HtmlEncoder.Default);
+                    }
+                    sw.WriteLine("</tr>");
+                    if (Model.HasDetails)
+                    {
+                        sw.WriteLine(string.Format(
+                            @"<tr class='grid-row'>
+                                <td colspan='{0}'>
+                                    <div style='margin-left:5px'>", Model.Columns.Count()));
+
+                        ((Model as IMasterControl).RenderDetailsGrid(item)).WriteTo(sw, System.Text.Encodings.Web.HtmlEncoder.Default);
+
+                        sw.WriteLine(@"</div>
+                                </td>
+                             </tr>");
+
+                    }
+                }
+
+                return new HtmlString(sw.ToString());
+            }
+        }
+    }
+
+    public IHtmlContent RenderGridPager()
+    {
+
+        if (!(Model.EnablePaging && Model.Pager != null))
+            return new HtmlString("");
+
+        TagBuilder tb = new TagBuilder("div");
+        tb.Attributes.Add("class", "grid-footer");
+        tb.InnerHtml.AppendHtml(Html.Partial(Model.Pager.TemplateName, Model.Pager));
+
+        return tb;
+
+    }
+}

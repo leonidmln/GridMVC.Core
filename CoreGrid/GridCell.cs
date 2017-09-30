@@ -10,7 +10,7 @@ namespace GridMvc
             _value = value;
         }
 
-        public bool Encode { get; set; }
+        public bool Encode { get; set; } 
 
         #region IGridCell Members
 

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>GridMVC.Core</id>
+    <version>1.0.1</version>
+    <authors>Leonid Molochniy</authors>
+    <owners>DataQuadrant.com</owners>
+    <description>GridMVC ported to ASP.NET Core 1.1(added ability to create master/details tables)</description>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/leonidmln/GridMVC.Core</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/leonidmln/GridMVC.Core/master/grid-icon.png</iconUrl>
+    <tags>MVC Grid ASP.NET Core</tags>
+    <dependencies>
+      <group targetFramework=".NETStandard1.3">
+        <dependency id="System.Runtime.Serialization.Primitives" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc.Core" version="1.1.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Html.Abstractions" version="1.1.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.NETCore.App" version="1.1.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="1.1.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Http.Abstractions" version="1.1.1" exclude="Build,Analyzers" />
+        <dependency id="System.Collections.Specialized" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="10.0.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+    <files>
+      <file src="CoreGrid.dll" target="lib\netstandard1.3"/>
+      <file src="_Grid.cshtml" target="content\Views\Shared"/>
+      <file src="_GridPager.cshtml" target="content\Views\Shared"/>
+      <file src="Gridmvc.css" target="content\wwwroot\css"/>
+      <file src="gridmvc.js" target="content\wwwroot\js"/>
+    </files>
+</package>
